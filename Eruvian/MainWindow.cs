@@ -27,8 +27,8 @@ namespace Eruvian
 
         private void StartButton_Click(object sender, EventArgs e)
         {
-            Adventure = new Thread();
-            Adventure.Priority = ThreadPriority.BelowNormal;
+            Adventure = new Thread(Adventures.Start);
+            Adventure.Priority = ThreadPriority.Normal;
             Adventure.IsBackground = true;
             Adventure.Start();
         }
@@ -38,6 +38,10 @@ namespace Eruvian
 
         }
 
+        public static void WriteLog(string s)
+        {
+            Program.MW.LogTextBox.Text = DateTime.Now.ToLongTimeString() + " | " + s + "\n" + Program.MW.LogTextBox.Text;
+        }
         private void UpdateGold()
         {
             label1.Text = UP.Gold.ToString();
