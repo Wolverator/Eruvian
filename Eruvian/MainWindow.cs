@@ -27,7 +27,7 @@ namespace Eruvian
 
         private void StartButton_Click(object sender, EventArgs e)
         {
-            Adventure = new Thread(Program.Process);
+            Adventure = new Thread();
             Adventure.Priority = ThreadPriority.BelowNormal;
             Adventure.IsBackground = true;
             Adventure.Start();
