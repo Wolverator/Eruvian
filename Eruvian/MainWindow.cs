@@ -18,7 +18,7 @@ namespace Eruvian
         public MainWindow()
         {
             InitializeComponent();
-            UP = new UserProfile();
+            UP = new UserProfile(this);
 
             UP.GoldUpdate += UpdateGold;
 
@@ -27,10 +27,11 @@ namespace Eruvian
 
         private void StartButton_Click(object sender, EventArgs e)
         {
-            Adventure = new Thread(Adventures.Start);
-            Adventure.Priority = ThreadPriority.Normal;
-            Adventure.IsBackground = true;
-            Adventure.Start();
+            //Adventure = new Thread(Adventures.Start);
+            //Adventure.Priority = ThreadPriority.Normal;
+            //Adventure.IsBackground = true;
+            //Adventure.Start();
+            UP.Gold += 500;
         }
 
         private void StopButton_Click(object sender, EventArgs e)
@@ -38,9 +39,10 @@ namespace Eruvian
 
         }
 
-        public static void WriteLog(string s)
+        public void WriteLog(string s)
         {
-            Program.MW.LogTextBox.Text = DateTime.Now.ToLongTimeString() + " | " + s + "\n" + Program.MW.LogTextBox.Text;
+            //Program.MW.LogTextBox.Text = DateTime.Now.ToLongTimeString() + " | " + s + "\n" + Program.MW.LogTextBox.Text;
+            LogTextBox.Text = DateTime.Now.ToLongTimeString() + " | " + s + "\n" + LogTextBox.Text;
         }
         private void UpdateGold()
         {

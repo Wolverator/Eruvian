@@ -25,8 +25,6 @@ namespace Eruvian
         //простой алгоритм поведения монстров
         //разные локации
 
-        public static MainWindow MW = null;
-
         /// <summary>
         /// Главная точка входа для приложения.
         /// </summary>
@@ -35,7 +33,7 @@ namespace Eruvian
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(MW = new MainWindow());
+            Application.Run(new MainWindow());
         }
     }
 }

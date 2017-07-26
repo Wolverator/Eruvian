@@ -10,6 +10,7 @@ namespace Eruvian
     {
         private uint _size = 10;
         private Object[] _thing;
+        private MainWindow MW;
 
         public Object[] Thing
         {
@@ -24,11 +25,15 @@ namespace Eruvian
             }
         }
         
-        public Inventory()
+        public Inventory(MainWindow mw)
         {
             _thing = new Object[_size];
+            MW = mw;
         }
-
+        private void WriteLog()
+        {
+            MW.WriteLog("ещё одна строка");
+        }
         public void NewSize(uint size)
         {
             //создание массива вещей на основе существующего массива

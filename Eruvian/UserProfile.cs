@@ -11,9 +11,19 @@ namespace Eruvian
     {
         //Приватные данные
         private Inventory _inventory;
+        private MainWindow MW;
+
+        public UserProfile(MainWindow mainWindow)
+        {
+            MW = mainWindow;
+            _inventory = new Inventory(mainWindow);
+        }
 
         //Свойства
-        
+        private void WriteLog()
+        {
+            MW.WriteLog("SomeString");
+        }
         public Object this[int index]
         {
             set
@@ -43,6 +53,7 @@ namespace Eruvian
             {
                 uGold = value;
                 GoldUpdate();
+                WriteLog();
             }
         }
     }
